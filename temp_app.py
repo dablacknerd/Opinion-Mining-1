@@ -3,19 +3,18 @@ import pyodbc
 
 db = dict (
  driver = 'FreeTDS',
- database = 'tom_scratch',
- server = '129.106.31.89',
+ database = 'db',
+ server = 'ip',
  port ='1433',
- uid = 'sa',
- password = 'T5iz3G1PcD39yAK'
+ uid = 'username',
+ password = 'pword'
 )
 
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% db ,autocommit=False)
 cur = con.cursor()
 
 sqlStatement = """
-               select a.NoteID,FileName
-               from Diabetes_List_A as a where a.Lab_HbA1C <> '0' and a.[FileName] is not NULL
+               SQL SELECT
                """
 
 cur.execute(sqlStatement)
