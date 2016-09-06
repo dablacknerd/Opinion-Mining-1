@@ -18,24 +18,20 @@ mm = MetaMap.get_instance('/opt/public_mm_linux_main_2014/bin/metamap14')
 #database configuration and connection
 dbConfig = dict (
         driver = 'FreeTDS',
-        database = 'tom_scratch',
-        server = '129.106.31.89',
+        database = 'db',
+        server = 'ip',
         port ='1433',
-        uid = 'oguntuga_srv',
-        password = 'WinterSoldier713'
+        uid = 'username',
+        password = 'password'
     )
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% dbConfig ,autocommit=False)
 cur = con.cursor()
 
 query1 = """
-          SELECT NoteID,SentenceID,Sentence,SourceFolder
-          FROM Sentences_POS
+          Select Query
          """
 #WHERE NoteID = 51 and SourceFolder = 'DM_Good_100'
-query2 = """INSERT INTO Entity_Genia
-			(NoteID,SentenceID,Entity,Sentence,SourceFolder)
-			VALUES('{n1}','{n2}','{n3}','{n4}','{n5}')
-			"""
+query2 = """Insert Query"""
 temp = cur.execute(query1)
 all_notes = temp.fetchall()
 
