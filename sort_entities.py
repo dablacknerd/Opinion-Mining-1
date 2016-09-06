@@ -8,18 +8,17 @@ from pymedtermino.snomedct import *
 
 dbConfig = dict (
         driver = 'FreeTDS',
-        database = 'tom_scratch',
-        server = '129.106.31.89',
+        database = 'db',
+        server = 'ip',
         port ='1433',
-        uid = 'oguntuga_srv',
-        password = 'WinterSoldier713'
+        uid = 'username',
+        password = 'password'
     )
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% dbConfig ,autocommit=False)
 cur = con.cursor()
 
 query1 = """
-         SELECT DISTINCT Entity FROM Entity_Genia
-         WHERE Entity is not NULL and SourceFolder = 'DM_Good_100'
+         SELECT SQL
          """
 
 workbook = xlsxwriter.Workbook('list.xlsx')
