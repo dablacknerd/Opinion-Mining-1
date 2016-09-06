@@ -21,11 +21,11 @@ def score(blob):
 
 db = dict (
  driver = 'FreeTDS',
- database = 'tom_scratch',
- server = '129.106.31.89',
+ database = 'db',
+ server = 'ip',
  port ='1433',
- uid = 'sa',
- password = 'T5iz3G1PcD39yAK'
+ uid = 'username',
+ password = 'password'
 )
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% db ,autocommit=False)
 cur = con.cursor()
@@ -67,9 +67,7 @@ for file in condensed_files:
 	blob_scores = collect_scores(TextBlob(note_string,analyzer=NaiveBayesAnalyzer()))
 	print blob_scores
 	q_s_2 = """ 
-	           INSERT INTO Diabetes_List_A_Machine_Learning
-			   (NoteID,Polarity,Polarity_Flag)
-			   VALUES('{note_id}','{polarity}','{polarity_flag}')
+	           INSERT SQL
 			   """
 	query2 = q_s_2.format( note_id = note_id,polarity = blob_scores[0], polarity_flag = blob_scores[1])
 	cur.execute(query2)
