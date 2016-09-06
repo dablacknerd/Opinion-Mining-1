@@ -28,5 +28,5 @@ for s in sentences:
 sent_df['lesk_wsd_polarity'] = polarity_list_1
 sent_df['siplelesk_wsd_polarity'] = polarity_list_2
 
-sent_df.to_excel("/home/aoguntuga/myVirtualEnvs/sent2/Test/test_case_result.xlsx")
+sent_df.to_excel("output_path.xlsx")
 print 'Done!!!'
