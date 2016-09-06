@@ -8,23 +8,20 @@ from entity_functions_2 import *
 
 dbConfig = dict (
         driver = 'FreeTDS',
-        database = 'tom_scratch',
-        server = '129.106.31.89',
+        database = 'db',
+        server = 'ip',
         port ='1433',
-        uid = 'oguntuga_srv',
-        password = 'WinterSoldier713'
+        uid = 'username',
+        password = 'password'
     )
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% dbConfig ,autocommit=False)
 cur = con.cursor()
 
 query1 = """
-          SELECT NoteID,SentenceID,Sentence,SourceFolder
-          FROM Entity_Genia
+          Select Query
          """
 
-query2 = """INSERT INTO Entity_Aspect_RB
-			(NoteID,SentenceID,Sentence,Polarity,Subjectivity,SourceFolder)
-			VALUES('{nid}','{sid}','{sent}','{polarity}','{subjectivity}','{foldr}')
+query2 = """Insert Query
 			"""
 temp = cur.execute(query1)
 all_notes = temp.fetchall()
