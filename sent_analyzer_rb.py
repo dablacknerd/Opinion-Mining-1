@@ -16,11 +16,11 @@ def collect_scores(blob_sentences):
 
 db = dict (
  driver = 'FreeTDS',
- database = 'tom_scratch',
- server = '129.106.31.89',
- port ='1433',
- uid = 'sa',
- password = 'T5iz3G1PcD39yAK'
+ database = 'db',
+ server = 'ip',
+ port ='port',
+ uid = 'username',
+ password = 'passowrd'
 )
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% db ,autocommit=False)
 cur = con.cursor()
@@ -38,7 +38,7 @@ for file in condensed_files:
 	#file_temp_1 = file.rstrip('.xml')
 	file_temp_2 = original_folder + '/' + file
 	print "Processing file: %s" % file_temp_2
-	q_s_1 = """ SELECT NoteID FROM Diabetes_List_A WHERE FileName like '{file_name}' """
+	q_s_1 = """ SELECT SQL """
 	query1 = q_s_1.format(file_name = file_temp_2)
 	print query1
 	result_temp1 = cur.execute(query1)
@@ -61,9 +61,7 @@ for file in condensed_files:
 	note_string = note_temp.decode('utf8','ignore')
 	blob_scores = collect_scores(TextBlob(note_string))
 	q_s_2 = """ 
-	           INSERT INTO Diabetes_List_A_Rule_Based
-			   (NoteID,Subjectivity,Polarity)
-			   VALUES('{note_id}','{polarity}','{subjectivity}')
+	           INSERT SQL
 			   """
 	query2 = q_s_2.format( note_id = note_id,polarity = blob_scores[0],subjectivity = blob_scores[1])
 	cur.execute(query2)
