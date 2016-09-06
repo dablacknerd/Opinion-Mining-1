@@ -19,11 +19,11 @@ xml_file_list = os.listdir(wd) #Load list of SemRep XML Files
 
 db = dict (
  driver = 'FreeTDS',
- database = 'tom_scratch',
- server = '129.106.31.89',
+ database = 'db',
+ server = 'ip',
  port ='1433',
- uid = 'sa',
- password = 'T5iz3G1PcD39yAK'
+ uid = 'username',
+ password = 'password'
 )
 
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% db ,autocommit=False)
