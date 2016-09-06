@@ -36,11 +36,11 @@ for  line in content1:
 
 db = dict (
  driver = 'FreeTDS',
- database = 'tom_scratch',
- server = '129.106.31.89',
+ database = 'db',
+ server = 'ip',
  port ='1433',
- uid = 'oguntuga_srv',
- password = 'WinterSoldier713'
+ uid = 'name',
+ password = 'pword'
 )
 con = pyodbc.connect('DRIVER=%(driver)s;DATABASE=%(database)s;SERVER=%(server)s;PORT=%(port)s;UID=%(uid)s;PWD=%(password)s;CHARSET=UTF8;TDS_VERSION=8.0;'% db ,autocommit=False)
 cur = con.cursor()
